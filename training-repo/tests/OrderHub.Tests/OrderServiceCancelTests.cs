@@ -50,6 +50,26 @@ public class OrderServiceCancelTests
     }
 
     [Fact]
+    public async Task CancelOrder_RestoresProductStock()
+    {
+        // 回歸測試（客訴 3）：取消時先把 Status 設成 Cancelled，才判斷「是否 Pending/Confirmed
+        // 才還原庫存」——條件恆為假，庫存從不加回。建單扣庫存後取消，庫存必須回到原值。
+        using var db = TestSetup.CreateContext();
+        var service = TestSetup.CreateOrderService(db);
+        var customer = TestSetup.AddCustomer(db);
+        var product = TestSetup.AddProduct(db, stock: 10);
+
+        var created = await service.CreateOrderAsync(customer.Id, new[] { new NewOrderLine(product.Id, 3) });
+        Assert.True(created.Success);
+        Assert.Equal(7, db.Products.Single(p => p.Id == product.Id).StockQuantity); // 建單扣 3
+
+        var result = await service.CancelOrderAsync(created.Value!.Id);
+
+        Assert.True(result.Success);
+        Assert.Equal(10, db.Products.Single(p => p.Id == product.Id).StockQuantity); // 取消加回 3
+    }
+
+    [Fact]
     public async Task CancelOrder_NotFound_Fails()
     {
         using var db = TestSetup.CreateContext();
