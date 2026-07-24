@@ -31,5 +31,23 @@ public class ProductsController : Controller
 
         return View(vm);
     }
+
+    public async Task<IActionResult> LowStock(LowStockViewModel query)
+    {
+        if (!ModelState.IsValid)
+            return View(query);   // threshold <= 0 或非數字 → 顯示表單錯誤，非 500
+
+        var items = await _productService.GetLowStockAsync(query.Threshold);
+
+        query.Products = items.Select(i => new LowStockRowViewModel
+        {
+            Sku = i.Sku,
+            Name = i.Name,
+            StockQuantity = i.StockQuantity,
+            SoldLast30Days = i.SoldLast30Days
+        }).ToList();
+
+        return View(query);
+    }
 }
 
