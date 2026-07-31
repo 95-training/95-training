@@ -259,9 +259,9 @@ args = ["run", "--project", "src/OrderHub.Mcp"]
 
 **驗證方式**:
 
-- [ ] Claude Code 輸入 `/mcp` 能看到 orderhub server 與三個工具(Codex 重啟後觀察工具可用)
-- [ ] 對照實驗完成且記錄
-- [ ] `.mcp.json`(或 config 片段說明)進 git,一個獨立 commit
+- [✅] Claude Code 輸入 `/mcp` 能看到 orderhub server 與三個工具(Codex 重啟後觀察工具可用)
+- [✅] 對照實驗完成且記錄
+- [✅] `.mcp.json`(或 config 片段說明)進 git,一個獨立 commit
 
 ---
 
@@ -293,7 +293,7 @@ public async Task<string> CancelOrder([Description("要取消的訂單 Id")] int
 
 **驗證方式**:
 
-- [ ] MCP Inspector 中 `cancel_order` 的 annotations 如你所標(destructiveHint 等),三個唯讀工具則顯示 read-only
+- [✅] MCP Inspector 中 `cancel_order` 的 annotations 如你所標(destructiveHint 等),三個唯讀工具則顯示 read-only
 - [ ] 對 agent 說「幫我取消訂單 X」:觀察**權限確認提示**——你按允許之前,資料不會被動到
 - [ ] 取消一筆待處理訂單成功,回 `/Products` 頁面確認庫存有回補(就是活動 1 客訴 3 修好的行為)
 - [ ] 對同一筆訂單再取消一次、或挑一筆已出貨訂單取消:得到清楚的拒絕訊息而非 exception dump
