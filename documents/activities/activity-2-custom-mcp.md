@@ -199,7 +199,7 @@ public class OrderHubTools(IOrderService orderService, IProductRepository produc
 
 **驗證方式**:
 
-- [ ] `dotnet build src/OrderHub.Mcp` 成功
+- [✅ ] `dotnet build src/OrderHub.Mcp` 成功
 - [ ] 一個獨立 commit(訊息說明新增了哪些工具)
 
 ---
