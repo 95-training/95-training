@@ -294,10 +294,10 @@ public async Task<string> CancelOrder([Description("要取消的訂單 Id")] int
 **驗證方式**:
 
 - [✅] MCP Inspector 中 `cancel_order` 的 annotations 如你所標(destructiveHint 等),三個唯讀工具則顯示 read-only
-- [ ] 對 agent 說「幫我取消訂單 X」:觀察**權限確認提示**——你按允許之前,資料不會被動到
-- [ ] 取消一筆待處理訂單成功,回 `/Products` 頁面確認庫存有回補(就是活動 1 客訴 3 修好的行為)
-- [ ] 對同一筆訂單再取消一次、或挑一筆已出貨訂單取消:得到清楚的拒絕訊息而非 exception dump
-- [ ] 獨立 commit;PROCESS.md 記錄
+- [✅] 對 agent 說「幫我取消訂單 X」:觀察**權限確認提示**——你按允許之前,資料不會被動到
+- [✅] 取消一筆待處理訂單成功,回 `/Products` 頁面確認庫存有回補(就是活動 1 客訴 3 修好的行為)
+- [✅] 對同一筆訂單再取消一次、或挑一筆已出貨訂單取消:得到清楚的拒絕訊息而非 exception dump
+- [✅] 獨立 commit;PROCESS.md 記錄
 
 ---
 
@@ -375,9 +375,9 @@ Program.cs 註冊(接在 `WithTools` 後面):
 
 **驗證方式**:
 
-- [ ] MCP Inspector:Resources 分頁讀得到 `orderhub://discount-rules`;Prompts 分頁能帶 `threshold` 參數取得展開後的訊息
-- [ ] Claude Code:`@` 選 resource 後問折扣問題,agent 用 resource 內容作答(Codex 用戶:Inspector 讀出 resource 內容貼進對話,問同一題)
-- [ ] Claude Code:`/mcp__orderhub__low_stock_report` 一鍵產出採購建議表
-- [ ] PROCESS.md 記錄 5c 第 3 點的思考;獨立 commit
+- [✅] MCP Inspector:Resources 分頁讀得到 `orderhub://discount-rules`;Prompts 分頁能帶 `threshold` 參數取得展開後的訊息
+- [✅] Claude Code:`@` 選 resource 後問折扣問題,agent 用 resource 內容作答(Codex 用戶:Inspector 讀出 resource 內容貼進對話,問同一題)
+- [✅] Claude Code:`/mcp__orderhub__low_stock_report` 一鍵產出採購建議表
+- [✅] PROCESS.md 記錄 5c 第 3 點的思考;獨立 commit
 
 ---

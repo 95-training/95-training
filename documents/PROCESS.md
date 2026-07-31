@@ -89,8 +89,19 @@
 
 
 ## Activity 2
-0.2 我讓Agent 用playwright 重新驗證 activity 1 的 客訴1，并將各步驟都截圖起來方便我做檢查
-4 
-a. 對 agent 說「幫我取消訂單 X」:觀察權限確認提示——你按允許之前,資料不會被動到 > 會提醒操作不可逆
-b. 檢查回補, 會使用 lowstock 1000 來模擬get，然後查看庫存是否回補
-c. 重複取消 > 訂單 #204 之前已經取消過了(狀態是 Cancelled),系統擋下重複取消:「狀態為 Cancelled 的訂單不可取消」。不需要再做什麼。
+
+### 練習 0.2
+
+我讓Agent 用playwright 重新驗證 activity 1 的 客訴1，并將各步驟都截圖起來方便我做檢查
+
+### 練習 4
+
+- a. 對 agent 說「幫我取消訂單 X」:觀察權限確認提示——你按允許之前,資料不會被動到 > 會提醒操作不可逆
+- b. 檢查回補,會使用 lowstock 1000 來模擬get,然後查看庫存是否回補
+- c. 重複取消 > 訂單 #204 之前已經取消過了(狀態是 Cancelled),系統擋下重複取消:「狀態為 Cancelled 的訂單不可取消」。不需要再做什麼。
+
+
+### 練習 5
+
+Claude Code:/mcp__orderhub__low_stock_report 一鍵產出採購建議表 發現到orderhub MCP 的 low_stock 工具只回傳 SKU/名稱/庫存,沒有銷售數據
+Claude Code 就改用 playwright 去抓取 /Products/LowStock 的數據。[採購建議表](../Activity2/exercise3/low-stock-restock-recommendation.md)
