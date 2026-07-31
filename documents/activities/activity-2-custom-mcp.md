@@ -47,8 +47,8 @@ args = ["@playwright/mcp@latest"]
 
 **驗證方式**:
 
-- [ ] agent 能自己開瀏覽器完成操作並回傳截圖
-- [ ] 回想活動 1 練習 2:當時人工重現 bug 的步驟,現在 agent 可以自己做——把這個對比記進 PROCESS.md
+- [✅] agent 能自己開瀏覽器完成操作並回傳截圖
+- [✅] 回想活動 1 練習 2:當時人工重現 bug 的步驟,現在 agent 可以自己做——把這個對比記進 PROCESS.md
 
 ---
 
@@ -199,8 +199,8 @@ public class OrderHubTools(IOrderService orderService, IProductRepository produc
 
 **驗證方式**:
 
-- [✅ ] `dotnet build src/OrderHub.Mcp` 成功
-- [ ] 一個獨立 commit(訊息說明新增了哪些工具)
+- [✅] `dotnet build src/OrderHub.Mcp` 成功
+- [✅] 一個獨立 commit(訊息說明新增了哪些工具)
 
 ---
 
@@ -218,9 +218,9 @@ npx @modelcontextprotocol/inspector dotnet run --project src/OrderHub.Mcp
 
 **驗證方式**:
 
-- [ ] 三個工具都列得出來,且 description、參數說明如你所寫
-- [ ] 手動呼叫 `LowStock`(threshold=10),回傳的商品和 `/Products` 頁面上的低庫存商品一致
-- [ ] 呼叫 `GetOrder` 用一個不存在的 Id,回應是清楚的錯誤訊息而不是 exception dump
+- [✅] 三個工具都列得出來,且 description、參數說明如你所寫
+- [✅] 手動呼叫 `LowStock`(threshold=10),回傳的商品和 `/Products` 頁面上的低庫存商品一致
+- [✅] 呼叫 `GetOrder` 用一個不存在的 Id,回應是清楚的錯誤訊息而不是 exception dump > 找不到訂單 1235789
 
 ---
 

@@ -1,0 +1,22 @@
+任務：找出庫存數量低於 5 的商品
+日期：2026-07-31
+
+步驟：
+1. 檢查 OrderHub.Web 是否在跑 -> curl localhost:5150 沒回應，代表 dev server 已停掉。
+2. 重新啟動：cd src/OrderHub.Web && dotnet run（背景執行），log 顯示
+   "Now listening on: http://localhost:5150"，確認啟動成功。
+3. 用 Playwright MCP 開啟 http://localhost:5150/Products/LowStock?Threshold=5
+   （網站 nav 上的「低庫存」頁面，本來就支援自訂門檻參數 Threshold）。
+4. 頁面邏輯（OrderHub.Core/Services/ProductService.cs -> GetLowStockAsync、
+   OrderHub.Infrastructure/Repositories/ProductRepository.cs -> GetLowStockAsync）
+   用的是 StockQuantity < threshold（嚴格小於），所以 Threshold=5 對應「庫存 < 5」，
+   同時只列 IsActive 的商品，並依庫存量由小到大排序。
+5. 截圖存證：low-stock-below-5.png
+
+結果（庫存 < 5 的商品，共 5 筆）：
+SKU        名稱              現有庫存   近30天售出
+SKU-1048   晨光 行動電源       2          7
+SKU-1005   極光 筆電支架       3          0
+SKU-1023   雲峰 27吋螢幕       3          17
+SKU-1014   星河 USB-C 集線器   4          18
+SKU-1032   曜石 機械鍵盤       4          22

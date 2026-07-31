@@ -1,0 +1,15 @@
+Low Stock Check - via OrderHub MCP Server (NOT web UI)
+Date: 2026-07-31
+Tool call: mcp__orderhub__low_stock(threshold=5)
+
+Results (sorted ascending by stock quantity):
+
+SKU        | Name                  | StockQuantity
+-----------|-----------------------|--------------
+SKU-1048   | 晨光 行動電源          | 2
+SKU-1005   | 極光 筆電支架          | 3
+SKU-1023   | 雲峰 27吋螢幕          | 3
+SKU-1014   | 星河 USB-C 集線器      | 4
+SKU-1032   | 曜石 機械鍵盤          | 4
+
+Total items below threshold: 5
