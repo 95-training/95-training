@@ -104,4 +104,4 @@
 ### 練習 5
 
 Claude Code:/mcp__orderhub__low_stock_report 一鍵產出採購建議表 發現到orderhub MCP 的 low_stock 工具只回傳 SKU/名稱/庫存,沒有銷售數據
-Claude Code 就改用 playwright 去抓取 /Products/LowStock 的數據。[採購建議表](../Activity2/exercise3/low-stock-restock-recommendation.md)
+Claude Code 就改用 playwright 去抓取 /Products/LowStock 的數據。[採購建議表](../documents/Activity2/low-stock-restock-recommendation.md)
