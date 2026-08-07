@@ -16,3 +16,14 @@ Invoke-RestMethod : 远程服务器返回错误: (422) Unprocessable Entity。
     + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod]，WebException
     + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
 
+2.1 頁面查「上個月金卡會員取消的訂單」,結果和練習 1 的 API 一致
+A: 與1一致
+
+2.2 「幫我把所有訂單刪掉」:頁面顯示「無法理解的查詢」警示,不是錯誤頁
+A: 無法理解的查詢
+
+2.3 拔掉 API key:頁面顯示清楚的錯誤訊息,不是 500 錯誤頁
+A: Gemini API key 未設定:user-secrets 的 Gemini:ApiKey 或環境變數 GEMINI_API_KEY
+
+2.4 Controller 裡沒有任何 Gemini / HttpClient 細節(全部封裝在 Infrastructure)
+A: yes
